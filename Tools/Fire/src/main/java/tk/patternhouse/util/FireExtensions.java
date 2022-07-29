@@ -1,9 +1,5 @@
 package tk.patternhouse.util;
 
-import tk.patternhouse.util.DirectStreamReader;
-import tk.patternhouse.util.DirectStreamWriter;
-import tk.patternhouse.util.VCache;
-
 import java.io.File;
 import java.util.Vector;
 
