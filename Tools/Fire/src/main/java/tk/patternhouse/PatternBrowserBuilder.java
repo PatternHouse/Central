@@ -7,9 +7,9 @@ import java.util.Vector;
 public class PatternBrowserBuilder extends FireExtensions {
 
     private static final String inputImagesDir = "./Assets/patterns/";
-    private static final String sourcesDir = "./Sources/PatternHouse/";
+    private static final String sourcesDir = "./Sources/Code/";
     // Future feature : private static final String metadataDir = "./Sources/PatternHouse/Meta/";
-    private static final String outputDir = "./Build/fireBuild/";
+    private static final String outputDir = "./Portal/portal/";
     private static final String templatesDir = "./Templates/";
     private static final String templateName = "SourceTemplate.md";
     private static final String outputExtension = ".md";
