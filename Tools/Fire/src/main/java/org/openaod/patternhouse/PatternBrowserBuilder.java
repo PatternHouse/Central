@@ -1,6 +1,6 @@
-package tk.patternhouse;
+package org.openaod.patternhouse;
 
-import tk.patternhouse.util.FireExtensions;
+import org.openaod.patternhouse.util.FireExtensions;
 
 import java.util.Vector;
 

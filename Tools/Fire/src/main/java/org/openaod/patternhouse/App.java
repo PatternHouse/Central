@@ -1,4 +1,4 @@
-package tk.patternhouse;
+package org.openaod.patternhouse;
 
 public class App {
 
