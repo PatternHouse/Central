@@ -12,3 +12,4 @@ blocks:
           commands:
             - checkout
             - bash ./build.sh
+            - cat ./Build/fire.log
