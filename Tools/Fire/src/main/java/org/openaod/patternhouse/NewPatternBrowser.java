@@ -7,7 +7,7 @@ import java.util.Vector;
 public class NewPatternBrowser extends FireExtensions {
 
     /* Pattern images URL prefix */
-    private static final String imgURLprefix = "https://cdn.openaod.org/patternhouse/images/patterns/";
+    private static final String imgURLprefix = "../../patterns/";
 
     /* Pattern GH Links URL prefix */
     private static final String ghURLprefix = "https://github.com/openAOD/";
@@ -42,18 +42,16 @@ public class NewPatternBrowser extends FireExtensions {
     /* Target Goals */
     private static final String[] goals = { "alphabetic", "numeric", "pyramid", "series", "spiral", "string", "symbol", "wave" };
 
-    /* Fire Variable <=> Name Map */
-    private static final Vector<String> fireVariableName = new Vector<>(1,1);
-    private static final Vector<String> fireVariableValue = new Vector<>(1,1);
-
     public static void build() {
 
         /* Checks to ensure that template is found */
         if(!exists(templatesDir+pSourceTemplatePath)) {
-            System.out.println("CHECK [FAIL]: Primary source template not found.");
-            System.out.println("CHECK [FAIL]: Searched file : "+(templatesDir+pSourceTemplatePath));
+            System.out.println(" CHECK [FAIL]: Primary source template not found.");
+            System.out.println(" CHECK [FAIL]: Searched file : "+(templatesDir+pSourceTemplatePath));
             System.exit(101);
         }
+
+        System.out.println(" CHECK [INFO] : PASS");
 
         // Ensure build directory is present and ready
         mkdir(outputDir);
@@ -64,11 +62,15 @@ public class NewPatternBrowser extends FireExtensions {
         // Loop through all the goals
         for(String goal:goals) {
 
+            System.out.println(" FIRE [INFO] : Reached Goal \""+goal+"\"");
+
             // Get all possible pattern images for the goal
             int GOAL_PATTERNS_INDEX = listFiles(inputImagesDir+goal);
             
             // Loop through all the possible pattern images for the goal
             for(String patternImage:get(GOAL_PATTERNS_INDEX)) {
+
+                System.out.println(" FIRE [INFO] : Looking for \""+patternImage+"\" under goal \""+goal+"\"");
 
                 // Skip and continue if pattern file is not an image
                 if( !(patternImage.endsWith(".PNG") || patternImage.endsWith(".png") || patternImage.endsWith(".JPG") || patternImage.endsWith(".jpg") ) ) continue;
@@ -82,10 +84,13 @@ public class NewPatternBrowser extends FireExtensions {
                 String capGoal = goal.substring(0, 1).toUpperCase() + goal.substring(1);
                 int patternNumber = Integer.parseInt(replacedPatternImage.replaceAll("\\D+",""));
                 String genPatternName = capGoal + " Pattern " + patternNumber;
+                System.out.println(" FIRE [INFO] : Reached Goal \""+capGoal+"\"");
+                System.out.println(" FIRE [INFO] : Reached genPatternName \""+genPatternName+"\"");
 
                 /* VCache Vector of Source Files */
                 int[] SRC_INDEX = new int[dispLanguages.length];
 
+                System.out.println(" FIRE [INFO] : Starting preliminary indexing");
                 // Loop through all languages
                 for(int i=0;i<dispLanguages.length;i++) {
 
@@ -109,9 +114,10 @@ public class NewPatternBrowser extends FireExtensions {
                     unsupLang = unsupLang.trim();
                 }
 
+                System.out.println(" FIRE [INFO] : Calculating preliminary Fire variables");
                 /* Calculate Fire Variables */
 
-                String imgURL = imgURLprefix + goal + "/" + patternImage;
+                String imgURL = imgURLprefix + goal + "/" + getProperName(patternImage);
 
                 String prevPStatus = "";
                 String nextPStatus = "";
@@ -140,7 +146,12 @@ public class NewPatternBrowser extends FireExtensions {
 
                 if(unsupLang.equals("")) noteFlag = "disabled";
 
+                System.out.println(" FIRE [INFO] : Mapping preliminary Fire variables");
                 /* Map Fire Variables */
+
+                /* Fire Variable <=> Name Map */
+                Vector<String> fireVariableName = new Vector<>(1,1);
+                Vector<String> fireVariableValue = new Vector<>(1,1);
 
                 // Fire Generated Pattern Name
                 fireVariableName.addElement("$(FIRE_GNPN)");
@@ -156,20 +167,22 @@ public class NewPatternBrowser extends FireExtensions {
 
                 // Fire Langauage Statuses
                 for(int i=0;i<dispLanguages.length;i++) {
-                    String upLang = dispLanguages[i].toUpperCase();
+                    String upLang = languagesExtensions[i].toUpperCase();
                     fireVariableName.addElement("$(FIRE_"+ upLang +"_LANG_SUP)");
                     fireVariableValue.addElement(langStatus[i]);
                 }
 
                 // Fire Previous Pattern Link and Status
                 fireVariableName.addElement("$(FIRE_PREV_PNLNK)");
-                fireVariableValue.addElement(prevGenPatternName+outputExtension);
+                if(!prevGenPatternName.equals("#")) fireVariableValue.addElement(prevGenPatternName+outputExtension);
+                else fireVariableValue.addElement(prevGenPatternName);
                 fireVariableName.addElement("$(FIRE_PREV_STATUS)");
                 fireVariableValue.addElement(prevPStatus);
 
                 // Fire Next Pattern Link and Status
                 fireVariableName.addElement("$(FIRE_NEXT_PNLNK)");
-                fireVariableValue.addElement(nextGenPatternName+outputExtension);
+                if(!nextGenPatternName.equals("#")) fireVariableValue.addElement(nextGenPatternName+outputExtension);
+                else fireVariableValue.addElement(nextGenPatternName);
                 fireVariableName.addElement("$(FIRE_NEXT_STATUS)");
                 fireVariableValue.addElement(nextPStatus);
 
@@ -177,7 +190,12 @@ public class NewPatternBrowser extends FireExtensions {
                 fireVariableName.addElement("$(FIRE_NTDSP_FLG)");
                 fireVariableValue.addElement(noteFlag);
 
+                // Fire Unsupported Langauages
+                fireVariableName.addElement("$(FIRE_UNSUP_LANG)");
+                fireVariableValue.addElement(unsupLang);
+
                 /* Prepare the template */
+                System.out.println(" FIRE [INFO] : Preparing preliminary output vector");
                 Vector<String> outputVector = new Vector<>(1,1);
                 Vector<String> sourceRepeatTemplate = new Vector<>(1,1);
                 boolean redirect = false;
@@ -189,7 +207,9 @@ public class NewPatternBrowser extends FireExtensions {
                 }
 
                 for(int i=0;i<dispLanguages.length;i++) {
-                    
+
+                    System.out.println(" FIRE [INFO] : Processing source repeat template vector for langauage \""+dispLanguages[i]+"\"");
+
                     // Get language suffix with pattern name
                     String sourceFile = replacedPatternImage + "." + languagesExtensions[i];
                     String sourceFilePath = sourcesDir + languagesExtensions[i] + "/" + goal + "/" + getProperName(sourceFile);
@@ -199,37 +219,62 @@ public class NewPatternBrowser extends FireExtensions {
 
                     for(String srct: sourceRepeatTemplate) {
 
-                        srct = srct.replaceAll("$(FIRE_LANG_ID)", languagesExtensions[i]);
-                        srct = srct.replaceAll("$(FIRE_LANG_NAME)", dispLanguages[i]);
-                        srct = srct.replaceAll("$(FIRE_SRC_NAME)", sourceFile);
-                        srct = srct.replaceAll("$(FIRE_LANG_GH_LINK)", (ghURLprefix + ghLangTags[i] + "-PatternHouse/blob/main/" + capGoal + " Patterns/" + sourceFile));
-
-                        outputVector.addElement(srct);
+                        srct = srct.replace("$(FIRE_LANG_ID)", languagesExtensions[i]);
+                        srct = srct.replace("$(FIRE_LANG_NAME)", dispLanguages[i]);
+                        srct = srct.replace("$(FIRE_SRC_NAME)", getProperName(sourceFile));
+                        srct = srct.replace("$(FIRE_LANG_GH_LINK)", (ghURLprefix + ghLangTags[i] + "-PatternHouse/blob/main/" + capGoal + " Patterns/" + getProperName(sourceFile)));
 
                         if(srct.trim().equals("$(FIRE_SRC)")) {
-                            for(String src:get(SRC_INDEX[i])) outputVector.addElement(src);
-                        } else continue;
+                            System.out.println(" FIRE [INFO] : Processing source code");
+                            for(String src:get(SRC_INDEX[i])) {
+                                outputVector.addElement(process(src));
+                            }
+                        } else {
+                            outputVector.addElement(srct);
+                        }
                     }
                 }
 
                 redirect = false;
                 for(String tstring:get(P_TEMPLATE_INDEX)) {
-                    if(tstring.trim().equals("$(FIRE_SRC_RPT_END)")) redirect = true;
+                    if(tstring.trim().equals("$(FIRE_SRC_RPT_END)")) { redirect = true; continue; }
                     if(redirect) outputVector.addElement(tstring);
                 }
 
                 /* Replace All Fire Variables */
                 Vector<String> fOutput = new Vector<>(1,1);
+                System.out.println(" FIRE [INFO] : Processing final output vector ");
                 for(String out:outputVector) {
-                    for(int i=0;i<fireVariableName.size();i++) out = out.replaceAll(fireVariableName.elementAt(i), fireVariableValue.elementAt(i));
+                    for(int i=0;i<fireVariableName.size();i++) out = out.replace(fireVariableName.elementAt(i), fireVariableValue.elementAt(i));
                     fOutput.addElement(out);
                 }
 
                 // Write the Generated file for the pattern
                 String genGoalDir = capGoal + " Patterns";
                 mkdir(outputDir+genGoalDir+"/");
+                System.out.println(" FIRE [INFO] : Writing final output vector ");
                 write(outputDir+genGoalDir+"/"+genPatternName+outputExtension, fOutput);
             }
         }
+    }
+
+    /* Fixes problems with rendering in case of tags within the code
+     * See https://stackoverflow.com/questions/2820453/how-to-display-raw-html-code-on-an-html-page
+     **/
+    public static String process(String st) {
+        String out = "";
+        for(int i=0;i<st.length();i++) {
+            char ch = st.charAt(i);
+            if(ch == '&') {
+                out += "&amp;";
+            } else if(ch == '<') {
+                out += "&lt;";
+            } else if (ch == '>') {
+                out += "&gt;";
+            } else {
+                out += ch;
+            }
+        }
+        return out;
     }
 }

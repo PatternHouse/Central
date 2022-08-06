@@ -5,7 +5,7 @@ set -e
 echo
 echo "Stage [4] INFO : Fetching source code from GitHub repositories ..."
 pushd ./Build/Sources/Code > /dev/null 2>&1
-git clone --depth 1 https://github.com/openAOD/Pyhton-PatternHouse.git > /dev/null 2>&1
+git clone --depth 1 https://github.com/openAOD/Python-PatternHouse.git > /dev/null 2>&1
 git clone --depth 1 https://github.com/openAOD/Java-PatternHouse.git > /dev/null 2>&1
 git clone --depth 1 https://github.com/openAOD/C-PatternHouse.git > /dev/null 2>&1
 git clone --depth 1 https://github.com/openAOD/CPlusPlus-PatternHouse.git > /dev/null 2>&1
