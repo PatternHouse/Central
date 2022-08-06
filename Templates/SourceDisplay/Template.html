@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> $(FIRE_GNPN) | PatternHouse DB</title>
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/code_display.css">
+    <link rel="stylesheet" href="css/nav_display.css">
+</head>
+
+<header id="top">
+    <div class="container">
+        <div class="left">
+            <div class="logo">PatternHouse Database</div>
+        </div>
+        <div class="right">
+            <a href="https://db.patternhouse.openaod.org"><div>PatternHouse DB</div></a>
+            <a href="https://patternhouse.openaod.org"><div>PatternHouse Website</div></a>
+            <a href="https://openaod.org"><div>openAOD</div></a>
+            <a href="https://openaod.org/about"><div>About</div></a>
+        </div>
+        <div class="right-mobile">
+            <div class="img"><img src="img/hamburger.svg" alt="left_arrow"/></div>
+        </div>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <section class="left">
+
+        <div class="top">
+            <div class="header">
+                <div class="heading">Navigator</div>
+            </div>
+            <div class="showcase">
+                <img src="$(FIRE_IMG_URL)" alt="pattern_image">
+            </div>
+            <div class="description">
+                Pattern Name: $(FIRE_GNPN) <br>
+                Group Name: $(FIRE_PNGRP)
+            </div>
+            <div class="spacer"></div>
+            <div class="badges-container">
+                <a href="#c"><div class="active $(FIRE_C_LANG_SUP)">C</div></a>
+                <a href="#cpp"><div class="active $(FIRE_CPP_LANG_SUP)">C++</div></a>
+                <a href="#cs"><div class="active $(FIRE_CS_LANG_SUP)">C#</div></a>
+                <a href="#java"><div class="active $(FIRE_JAVA_LANG_SUP)">Java</div></a>
+                <a href="#py"><div class="active $(FIRE_PY_LANG_SUP)">Python</div></a>
+            </div>
+            <div class="navigation">
+                <a href="$(FIRE_PREV_PNLNK)">
+                    <div class="left $(FIRE_PREV_STATUS)">
+                        <div class="icon"><img src="img/left-nav.svg" alt="left_icon"></div>
+                        <div class="text">
+                            <div class="head">Back</div>
+                            <div class="subtext removable">$(FIRE_LGNPN)</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="$(FIRE_NEXT_PNLNK)">
+                    <div class="right $(FIRE_NEXT_STATUS)">
+                        <div class="text">
+                            <div class="head">Next</div>
+                            <div class="subtext removable">$(FIRE_RGNPN)</div>
+                        </div>
+                        <div class="icon"><img src="img/right-nav.svg" alt="left_icon"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div class="head">Debug Info</div>
+            <div class="text">
+                Build ID: $(FIRE_BUILD_ID) <br>
+                Build Date: $(FIRE_BUILD_DATE) <br>
+                Fire Version: $(FIRE_VERSION)
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="right">
+        <div class="h1">$(FIRE_GNPN)</div>
+
+        $(FIRE_SRC_RPT_START)
+        <div class="h2" id="$(FIRE_LANG_ID)">$(FIRE_LANG_NAME)</div>
+        <div class="code-container">
+            <div class="header">
+                <div class="left">
+                    <div class="filename">
+                        <img src="img/source.svg" alt="source_icon">
+                        <div>$(FIRE_SRC_NAME)</div>
+                    </div>
+                </div>
+                <div class="right">
+                    <a href="$(FIRE_LANG_GH_LINK)">
+                        <div class="nav">
+                            <img src="img/github-icon.svg" alt="github_icon">
+                            <div>GitHub</div>
+                        </div>
+                    </a>
+                    <a href="$(FIRE_LANG_DW_LINK)">
+                        <div class="nav">
+                            <img src="img/cloud-download.svg" alt="download_icon">
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="middle">
+            <pre><code class="language-$(FIRE_LANG_ID)">
+$(FIRE_SRC)
+            </code></pre>
+            </div>
+            <div class="footer">
+                <div class="left">
+                    <img src="img/license.svg" alt="license_icon">
+                    <div class="note">Licensed under MIT</div>
+                </div>
+                <div class="right">
+                    <div class="note">
+                        Syntax highlighting powered by <a href="https://prismjs.com">PrismJS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        $(FIRE_SRC_RPT_END)
+
+        <div class="info $(FIRE_NTDSP_FLG)">
+            <div class="icon"><img src="img/info-icon.svg" alt="info_icon"></div>
+            <div class="text">We are currently awaiting contributions for this pattern for the lanaguages: $(FIRE_UNSUP_LANG). <br> Please visit our GitHub page if you would like to contribute.</div>
+        </div>
+
+        <a href="#top"><div class="bottom-nav"> Back to Top </div></a>
+    </section>
+
+</div>
+
+<script src="js/prism.js"></script>
+
+<footer>
+    <div class="container">
+        <div class="left">
+            <div class="heading">PatternHouse Database</div>
+            <div class="description">Copyright &copy 2022, openAOD</div>
+        </div>
+        <div class="right">
+            <a href="https://vercel.com/?utm_source=openaod"><div class="sponsor-note">Powered by Vercel</div></a>
+        </div>
+    </div>
+</footer>
+
+</html>

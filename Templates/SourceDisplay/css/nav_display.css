@@ -1,0 +1,117 @@
+.main-container section.left {
+    align-self: flex-start;
+}
+
+.main-container section.left .top {
+    align-self: flex-start;
+    border: 1px solid #4DB6AC;
+    padding: 1rem;
+}
+
+.main-container section.left .top .spacer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-top: #4DB6AC solid 1px;
+}
+
+.main-container section.left .top .header .heading {
+    font-size: 1.5rem;
+    color: #00695C;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.main-container section.left .top .description {
+    color: #00695C;
+}
+
+.main-container section.left .top .badges-container {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.main-container section.left .top .badges-container div {
+    padding: 0.25rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    font-size: 1rem;
+    flex-grow: 0;
+}
+
+.main-container section.left .top .badges-container .active {
+    color: #004D40;
+    border: 1px solid #004D40;
+    background-color: #E0F2F1;
+}
+
+.main-container section.left .top .badges-container .inactive {
+    color: #bbb;
+    background-color: transparent;
+    border: 1px solid #bbb;
+}
+
+.main-container section.left .top .navigation {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+}
+
+.main-container section.left .top .navigation .left, .main-container section.left .top .navigation .right {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 1;
+    color: #00695C;
+}
+
+.main-container section.left .top .navigation .disabled, .main-container section.left .top .navigation .disabled {
+    color: #bbb;
+}
+
+.main-container section.left .top .navigation .left .icon img, .main-container section.left .top .navigation .right .icon img {
+    height: 2.5rem;
+    filter: invert(14%) sepia(90%) saturate(4136%) hue-rotate(168deg) brightness(92%) contrast(101%)
+}
+
+.main-container section.left .top .navigation .disabled .icon img, .main-container section.left .top .navigation .disabled .icon img {
+    filter: invert(75%) sepia(20%) saturate(3%) hue-rotate(317deg) brightness(94%) contrast(99%);
+}
+
+.main-container section.left .top .navigation .disabled .removable, .main-container section.left .top .navigation .disabled .removable {
+    display: none;
+}
+
+.main-container section.left .top .navigation .left .text, .main-container section.left .top .navigation .right .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-container section.left .top .navigation .right .text {
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+.main-container section.left .top .navigation .left .text .head, .main-container section.left .top .navigation .right .text .head {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.main-container section.left .bottom {
+    margin-top: 1rem;
+    border: 1px solid #4DB6AC;
+    padding: 1rem;
+}
+
+.main-container section.left .bottom .head {
+    font-size: 1.25rem;
+    color: #00695C;
+    padding: 0.25rem 0rem;
+}
+ 
+.main-container section.left .bottom .text {
+    padding: 0.25rem 0rem;
+}

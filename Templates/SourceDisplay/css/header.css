@@ -1,0 +1,80 @@
+header {
+    border-bottom: 5px solid #00BFA5;
+    background-color: #00695C;
+    color: white;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: unset;
+    margin: 0 auto;
+}
+
+header .container div {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+header .container .left {
+    display: flex;
+    gap: 1.5rem;
+    margin-left: 1rem;
+    font-size: 1.75rem;
+    font-weight: 300;
+    align-items: center;
+}
+
+header .container .left .img img{
+    width: 0.75rem;
+    filter: invert(100%);
+}
+
+header .container .right-mobile {
+    margin-right: 1rem;
+}
+
+header .container .right-mobile .img {
+    display: flex;
+}
+
+header .container .right-mobile .img img {
+    width: 1.75rem;
+    filter: invert(100%);
+    align-self: center;
+}
+
+header .container .right {
+    display: none;
+    gap: 2.5rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+
+header .container .right div {
+    color: #80CBC4;
+}
+
+header .container .right div:hover {
+    color: white;
+}
+
+
+@media only screen and (min-width: 75rem) {
+    header .container {
+        width: 75rem;
+    }
+
+    header .container .right {
+        display: flex;
+    }
+
+    header .container .left {
+        font-size: 2.25rem;
+    }
+
+    header .container .right-mobile {
+        display: none;
+    }
+}

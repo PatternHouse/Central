@@ -1,2 +1,4 @@
 Build/
 Tools/Fire/target/
+.idea/
+*.iml

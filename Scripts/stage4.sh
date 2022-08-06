@@ -5,26 +5,26 @@ set -e
 echo
 echo "Stage [4] INFO : Fetching source code from GitHub repositories ..."
 pushd ./Build/Sources/Code > /dev/null 2>&1
-git clone --depth 1 https://github.com/openAOD/Python-PatternHouse.git > /dev/null 2>&1
+git clone --depth 1 https://github.com/openAOD/Pyhton-PatternHouse.git > /dev/null 2>&1
 git clone --depth 1 https://github.com/openAOD/Java-PatternHouse.git > /dev/null 2>&1
 git clone --depth 1 https://github.com/openAOD/C-PatternHouse.git > /dev/null 2>&1
 git clone --depth 1 https://github.com/openAOD/CPlusPlus-PatternHouse.git > /dev/null 2>&1
 git clone --depth 1 https://github.com/openAOD/CSharp-PatternHouse.git > /dev/null 2>&1
 echo "Stage [4] INFO : Formatting directory names ..."
-mv ./Python-PatternHouse ./python
+mv ./Python-PatternHouse ./py
 mv ./Java-PatternHouse ./java
 mv ./C-PatternHouse ./c
 mv ./CPlusPlus-PatternHouse ./cpp
 mv ./CSharp-PatternHouse ./cs
 
-mv "./python/Alphabetic Patterns" ./python/alphabetic
-mv "./python/Numeric Patterns" ./python/numeric
-mv "./python/Pyramid Patterns" ./python/pyramid
-mv "./python/Series Patterns" ./python/series
-mv "./python/Spiral Patterns" ./python/spiral
-mv "./python/String Patterns" ./python/string
-mv "./python/Symbol Patterns" ./python/symbol
-mv "./python/Wave Patterns" ./python/wave
+mv "./py/Alphabetic Patterns" ./py/alphabetic
+mv "./py/Numeric Patterns" ./py/numeric
+mv "./py/Pyramid Patterns" ./py/pyramid
+mv "./py/Series Patterns" ./py/series
+mv "./py/Spiral Patterns" ./py/spiral
+mv "./py/String Patterns" ./py/string
+mv "./py/Symbol Patterns" ./py/symbol
+mv "./py/Wave Patterns" ./py/wave
 
 mv "./java/Alphabetic Patterns" ./java/alphabetic
 mv "./java/Numeric Patterns" ./java/numeric
