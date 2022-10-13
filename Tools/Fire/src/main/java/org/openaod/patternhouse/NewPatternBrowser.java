@@ -3,8 +3,14 @@ package org.openaod.patternhouse;
 import org.openaod.patternhouse.util.FireExtensions;
 
 import java.util.Vector;
+import java.time.LocalDate;
 
 public class NewPatternBrowser extends FireExtensions {
+
+    /* Fire Debugging Variables */
+    private static final String fireBuildID = "openAOD FIRE v1.1 Release Candidate 1";
+    private static final String fireVersionString = "openaod-fire-v1.1rc1";
+    private static final String fireDateString = "" + LocalDate.now();
 
     /* Pattern images URL prefix */
     private static final String imgURLprefix = "../../patterns/";
@@ -193,6 +199,16 @@ public class NewPatternBrowser extends FireExtensions {
                 // Fire Unsupported Langauages
                 fireVariableName.addElement("$(FIRE_UNSUP_LANG)");
                 fireVariableValue.addElement(unsupLang);
+                
+                // Fire Debug variables
+                fireVariableName.addElement("$(FIRE_BUILD_ID)");
+                fireVariableValue.addElement(fireBuildID);
+
+                fireVariableName.addElement("$(FIRE_BUILD_DATE)");
+                fireVariableValue.addElement(fireDateString);
+
+                fireVariableName.addElement("$(FIRE_VERSION)");
+                fireVariableValue.addElement(fireVersionString);
 
                 /* Prepare the template */
                 System.out.println(" FIRE [INFO] : Preparing preliminary output vector");
