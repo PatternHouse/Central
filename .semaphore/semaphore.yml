@@ -11,10 +11,9 @@ blocks:
         - name: Build
           commands:
             - checkout
+            - sudo ln -sf bash /bin/sh
             - sudo apt install -y maven default-jdk
-            - bash ./Scripts/stage1.sh
-            - bash ./Scripts/stage2.sh
-            - bash ./Scripts/stage3.sh
+            - bash ./Scripts/build.sh
       agent:
         machine:
           type: e1-standard-2
