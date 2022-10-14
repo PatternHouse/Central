@@ -11,4 +11,9 @@ blocks:
         - name: Build
           commands:
             - checkout
+            - sudo apt install -y openjdk-18-jdk maven
             - bash ./Scripts/build.sh
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu2004
