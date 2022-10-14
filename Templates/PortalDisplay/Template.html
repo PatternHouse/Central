@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PatternHouse WebUI</title>
+    <link rel="stylesheet" href="../css/portal_disp.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        var ts_alphabetic = true;
+        var ts_numeric = true;
+        var ts_pyramid = true;
+        var ts_series = true;
+        var ts_spiral = true;
+        var ts_string = true;
+        var ts_symbol = true;
+        var ts_wave = true;
+
+        function togglep_alphabetic() {
+            if(ts_alphabetic === true) {
+                document.getElementById("tbutton-alphabetic").className = "label"; 
+                ts_alphabetic = false;
+                $('.alphabetic').hide();
+            } else {
+                document.getElementById("tbutton-alphabetic").className = "label-active"; 
+                ts_alphabetic = true;
+                $('.alphabetic').show();
+            }
+        }
+
+        function togglep_numeric() {
+            if(ts_numeric === true) {
+                document.getElementById("tbutton-numeric").className = "label"; 
+                ts_numeric = false;
+                $('.numeric').hide();
+            } else {
+                document.getElementById("tbutton-numeric").className = "label-active"; 
+                ts_numeric = true;
+                $('.numeric').show();
+            }
+        }
+
+        function togglep_pyramid() {
+            if(ts_pyramid === true) {
+                document.getElementById("tbutton-pyramid").className = "label"; 
+                ts_pyramid = false;
+                $('.pyramid').hide();
+            } else {
+                document.getElementById("tbutton-pyramid").className = "label-active"; 
+                ts_pyramid = true;
+                $('.pyramid').show();
+            }
+        }
+
+        function togglep_series() {
+            if(ts_series === true) {
+                document.getElementById("tbutton-series").className = "label"; 
+                ts_series = false;
+                $('.series').hide();
+            } else {
+                document.getElementById("tbutton-series").className = "label-active"; 
+                ts_series = true;
+                $('.series').show();
+            }
+        }
+
+        function togglep_spiral() {
+            if(ts_spiral === true) {
+                document.getElementById("tbutton-spiral").className = "label"; 
+                ts_spiral = false;
+                $('.spiral').hide();
+            } else {
+                document.getElementById("tbutton-spiral").className = "label-active"; 
+                ts_spiral = true;
+                $('.spiral').show();
+            }
+        }
+
+        function togglep_string() {
+            if(ts_string === true) {
+                document.getElementById("tbutton-string").className = "label"; 
+                ts_string = false;
+                $('.string').hide();
+            } else {
+                document.getElementById("tbutton-string").className = "label-active"; 
+                ts_string = true;
+                $('.string').show();
+            }
+        }
+
+        function togglep_symbol() {
+            if(ts_symbol === true) {
+                document.getElementById("tbutton-symbol").className = "label"; 
+                ts_symbol = false;
+                $('.symbol').hide();
+            } else {
+                document.getElementById("tbutton-symbol").className = "label-active"; 
+                ts_symbol = true;
+                $('.symbol').show();
+            }
+        }
+
+        function togglep_wave() {
+            if(ts_wave === true) {
+                document.getElementById("tbutton-wave").className = "label"; 
+                ts_wave = false;
+                $('.wave').hide();
+            } else {
+                document.getElementById("tbutton-wave").className = "label-active"; 
+                ts_wave = true;
+                $('.wave').show();
+            }
+        }
+
+        window.onload = function() {
+            togglep_alphabetic();
+            togglep_numeric();
+            togglep_pyramid();
+            togglep_series();
+            togglep_spiral();
+            togglep_string();
+            togglep_symbol();
+            togglep_wave();
+        };
+    </script>
+</head>
+
+<header id="top">
+    <div class="container">
+        <div class="left">
+            <div class="logo">PatternHouse Database</div>
+        </div>
+        <div class="right">
+            <a href="https://patternhouse.openaod.org/portal/"><div>PatternHouse DB</div></a>
+            <a href="https://patternhouse.openaod.org"><div>PatternHouse Website</div></a>
+            <a href="https://openaod.org"><div>openAOD</div></a>
+            <a href="https://openaod.org/about"><div>About</div></a>
+        </div>
+        <div class="right-mobile">
+            <div class="img"><img src="../img/hamburger.svg" alt="left_arrow"/></div>
+        </div>
+    </div>
+</header>
+
+<div class="portal-container">
+    
+    <div class="head">
+        <div class="heading">PatternHouse Portal WebUI</div>
+        <div class="label-holder">
+            <div class="text">Select Pattern Type(s): </div>
+            $(FIRE_PN_RPTT)  <button id="tbutton-$(FIRE_PNNAME)" class="label-active" onclick="togglep_$(FIRE_PNNAME)()">$(FIRE_PNNAME)</button>
+        </div>
+    </div>
+
+    
+    <div class="dash">
+        $(FIRE_CARDTS)
+        <div class="card $(FIRE_PNT)">
+            <div class="heading">
+                <div class="title">$(FIRE_GNPN)</div>
+            </div>
+            <div class="img">
+                <div><img src="$(FIRE_IMG_LINK)"/></div>
+            </div>
+            <div class="labels">
+                Type: 
+                <div class="label-holder">
+                    <div class="label-active">$(FIRE_PNT)</div>
+                </div>
+                Languages:
+                <div class="label-holder">
+                    $(FIRE_LN_RPTT)  <button class="label$(FIRE_LNS)">$(FIRE_LNNAME)</button>
+                </div>
+            </div>
+            <a href="$(FIRE_CODE_LINK)" target="_blank" rel="noopener noreferrer">
+                <div class="link">
+                    <div class="text">Open Code Display</div>
+                </div>
+            </a>
+        </div>
+        $(FIRE_CARDTE)
+        $(FIRE_DASH_RPT)
+    </div>
+
+</div>
+
+<footer>
+    <div class="container">
+        <div class="left">
+            <div class="heading">PatternHouse Database</div>
+            <div class="description">Copyright &copy 2022, openAOD</div>
+        </div>
+        <div class="right">
+            <a href="https://vercel.com/?utm_source=openaod"><div class="sponsor-note">Powered by Vercel</div></a>
+        </div>
+    </div>
+</footer>
+
+</html>

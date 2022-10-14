@@ -8,8 +8,8 @@ import java.time.LocalDate;
 public class NewPatternBrowser extends FireExtensions {
 
     /* Fire Debugging Variables */
-    private static final String fireBuildID = "openAOD FIRE v1.1 Release Candidate 1";
-    private static final String fireVersionString = "openaod-fire-v1.1rc1";
+    private static final String fireBuildID = "openAOD FIRE v1.2 Release Candidate 2";
+    private static final String fireVersionString = "openaod-fire-v1.2rc2";
     private static final String fireDateString = "" + LocalDate.now();
 
     /* Pattern images URL prefix */
@@ -266,13 +266,156 @@ public class NewPatternBrowser extends FireExtensions {
                 }
 
                 // Write the Generated file for the pattern
-                String genGoalDir = capGoal + " Patterns";
+                String genGoalDir = goal;
                 mkdir(outputDir+genGoalDir+"/");
                 System.out.println(" FIRE [INFO] : Writing final output vector ");
                 write(outputDir+genGoalDir+"/"+genPatternName+outputExtension, fOutput);
             }
         }
+
+        buildPortalDasboard();
     }
+
+    /* Primary Portal Webpage Template */
+    private static final String pPortalTemplatePath = "PortalDisplay/Template.html";
+
+    /* Primary Portal Webpage Target */
+    private static final String dashboardWebpagePage = "./Portal/portal/index.html";
+
+    /* Primary Portal Webpage Image Prefix */
+    private static final String pImagePrexfix = "../patterns/";
+
+    private static void buildPortalDasboard() {
+        System.out.println(" FIRE [INFO] : Building Portal frontend ... ");
+
+        /* Checks to ensure that template is found */
+        if(!exists(templatesDir+pPortalTemplatePath)) {
+            System.out.println(" CHECK [FAIL]: Primary source template not found.");
+            System.out.println(" CHECK [FAIL]: Searched file : "+(templatesDir+pPortalTemplatePath));
+            System.exit(101);
+        }
+
+        System.out.println(" CHECK [INFO] : PASS");
+
+        int P_TEMPLATE_INDEX = read(templatesDir+pPortalTemplatePath);
+        
+        String pnrptt = "";
+        String lnrptt = "";
+
+        boolean redirect = false;
+        Vector<String> cardTemplate = new Vector<>(1,1);
+
+        /* Process the template */
+        for(String line:get(P_TEMPLATE_INDEX)) {
+            String templateLine = line.trim();
+            if(templateLine.equals("$(FIRE_CARDTE)")) { redirect = false; continue; }
+            if(redirect) cardTemplate.addElement(templateLine);
+            else {
+                if(templateLine.equals("$(FIRE_CARDTS)")) { redirect = true; continue; }
+                if(templateLine.startsWith("$(FIRE_PN_RPTT)")) pnrptt = templateLine.replace("$(FIRE_PN_RPTT)", "").trim();
+                if(templateLine.startsWith("$(FIRE_LN_RPTT)")) lnrptt = templateLine.replace("$(FIRE_LN_RPTT)", "").trim();
+            }
+        }
+
+        Vector<String> outputVector = new Vector<>(1,1);
+        
+        redirect = false;
+        for(String line:get(P_TEMPLATE_INDEX)) {
+            if(redirect) {
+                if(line.trim().startsWith("$(FIRE_CARDTE)")) redirect = false;
+                continue;
+            }
+            if(line.trim().startsWith("$(FIRE_CARDTS)")) {
+                redirect = true;
+                continue;
+            }
+            if(line.trim().startsWith("$(FIRE_PN_RPTT)")) {
+                for(String goal:goals) outputVector.addElement(pnrptt.replace("$(FIRE_PNNAME)", goal));
+            } else if(line.trim().startsWith("$(FIRE_LN_RPTT)")) {
+                for(String lang:dispLanguages) outputVector.addElement(lnrptt.replace("$(FIRE_LNNAME)", lang));
+            } else if(line.trim().equals("$(FIRE_DASH_RPT)")) {
+                
+                for(String goal:goals) {
+                    // Get all possible pattern images for the goal
+                    int GOAL_PATTERNS_INDEX = listFiles(inputImagesDir+goal);
+                    
+                    // Loop through all the possible pattern images for the goal
+                    for(String patternImage:get(GOAL_PATTERNS_INDEX)) {
+                        
+
+                        // Skip and continue if pattern file is not an image
+                        if( !(patternImage.endsWith(".PNG") || patternImage.endsWith(".png") || patternImage.endsWith(".JPG") || patternImage.endsWith(".jpg") ) ) continue;
+
+                        // Replace extensions in the name
+                        String replacedPatternImage = patternImage.replace(".PNG", "").replace(".png", "").replace(".JPG", "").replace(".jpg","");
+
+                        // Create a Generated Pattern Name for the patternImage
+                        // This will be in the format of (Capitalized Goal Name) + " Pattern " + (Numeric Part of patternImage)
+                        // eg. "Alphabetic Pattern 20"
+                        String capGoal = goal.substring(0, 1).toUpperCase() + goal.substring(1);
+                        int patternNumber = Integer.parseInt(replacedPatternImage.replaceAll("\\D+",""));
+                        String genPatternName = capGoal + " Pattern " + patternNumber;
+                        System.out.println(" FIRE [INFO] : Reached Goal \""+capGoal+"\"");
+                        System.out.println(" FIRE [INFO] : Reached genPatternName \""+genPatternName+"\"");
+
+                        /* VCache Vector of Source Files */
+                        int[] SRC_INDEX = new int[dispLanguages.length];
+
+                        System.out.println(" FIRE [INFO] : Starting preliminary indexing");
+                        // Loop through all languages
+                        for(int i=0;i<dispLanguages.length;i++) {
+
+                            // Get language suffix with pattern name
+                            String sourceFile = replacedPatternImage + "." + languagesExtensions[i];
+                            String sourceFilePath = sourcesDir + languagesExtensions[i] + "/" + goal + "/" + getProperName(sourceFile);
+
+                            // Check for source code for the pattern in the language
+                            if(exists(sourceFilePath)) {
+                                SRC_INDEX[i] = read(sourceFilePath);
+                            } else {
+                                SRC_INDEX[i] = -1;
+                            }
+
+                        }
+
+                        String patternType = goal;
+                        String patternGenPN = genPatternName;
+                        String labelrpt = "";
+                        String imgURL = pImagePrexfix + goal + "/" + getProperName(patternImage);
+                        String codeLink = goal+"/"+genPatternName+outputExtension;
+                        
+                        for(String template:cardTemplate) {
+                            String out = template.trim();
+                            if(out.startsWith("$(FIRE_LN_RPTT)")) {
+                                out = out.replace("$(FIRE_LN_RPTT)", "");
+                                for(int i=0;i<dispLanguages.length;i++) {
+                                    String lns = "";
+                                    if(SRC_INDEX[i] != -1) lns = "-active";
+                                    String lout = out.replace("$(FIRE_LNS)", lns).replace("$(FIRE_LNNAME)", dispLanguages[i]);
+                                    outputVector.addElement(lout);
+                                }
+                            } else {
+                                out = out.replace("$(FIRE_PNT)", patternType);
+                                out = out.replace("$(FIRE_GNPN)", patternGenPN);
+                                out = out.replace("$(FIRE_IMG_LINK)", imgURL);
+                                out = out.replace("$(FIRE_CODE_LINK)", codeLink); 
+                                outputVector.addElement(out);
+                            }
+                        }
+
+                    }
+
+                }
+
+            } else {
+                outputVector.addElement(line);
+            }
+        }
+
+        System.out.println("Writing dashboard output vector ... ");
+        write(dashboardWebpagePage, outputVector);
+    }
+
 
     /* Fixes problems with rendering in case of tags within the code
      * See https://stackoverflow.com/questions/2820453/how-to-display-raw-html-code-on-an-html-page

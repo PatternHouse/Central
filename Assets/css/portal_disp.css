@@ -1,0 +1,111 @@
+.portal-container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.portal-container .head {
+    padding: 1.5rem 0rem;
+}
+
+.portal-container .head .heading {
+    font-size: 1.75rem;
+    font-weight: bolder;
+}
+
+.portal-container .label-holder {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    padding: 0.25rem 0rem;
+    flex-wrap: wrap;
+}
+
+.portal-container .label {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 14px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    color: #aaa;
+}
+
+.portal-container .label-active {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 14px;
+    border: 1px solid #00695C;
+    background-color: #64FFDA;
+    color: #00695C;
+}
+
+.dash {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.dash .card {
+    min-width: 180px;
+    max-width: 275px;
+    border: 1px solid #00695C;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.dash .card .heading {
+    color: #00695C;
+}
+
+.dash .card .heading .title {
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    padding: 0.25rem 0.75rem;
+    background-color: #00695C;
+    color: white;
+}
+
+.dash .card .labels {
+    padding: 0rem 0.5rem;
+}
+
+.dash .card .label-holder {
+    padding: 0.25rem 0.75rem;
+    gap: 0.5rem;
+}
+
+.dash .card .img {
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.dash .card .link {
+    background-color: #00695C;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0rem;
+    margin-top: 0.5rem;
+    transition-duration: 0.7s;
+}
+
+.dash .card .link:hover {
+    background-color: #00897B;
+}
+
+@media only screen and (min-width: 72rem) {
+    .portal-container {
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+}
+
+@media only screen and (min-width: 102rem) {
+    .portal-container {
+        margin-left: 16vw;
+        margin-right: 16vw;
+    }
+}
