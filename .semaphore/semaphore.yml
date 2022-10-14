@@ -11,5 +11,4 @@ blocks:
         - name: Build
           commands:
             - checkout
-            - bash ./build.sh
-            - cat ./Build/fire.log
+            - bash ./Scripts/build.sh
