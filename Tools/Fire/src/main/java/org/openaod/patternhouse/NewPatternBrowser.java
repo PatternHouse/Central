@@ -9,8 +9,8 @@ import java.time.LocalDate;
 public class NewPatternBrowser extends FireExtensions {
 
     /* Fire Debugging Variables */
-    private static final String fireBuildID = "openAOD FIRE v1.2 Release Candidate 2";
-    private static final String fireVersionString = "openaod-fire-v1.2rc2";
+    private static final String fireBuildID = "openAOD FIRE v1.2 Release Candidate 3";
+    private static final String fireVersionString = "openaod-fire-v1.2rc3";
     private static final String fireDateString = "" + LocalDate.now();
 
     /* Pattern images URL prefix */
@@ -240,6 +240,7 @@ public class NewPatternBrowser extends FireExtensions {
                         srct = srct.replace("$(FIRE_LANG_NAME)", dispLanguages[i]);
                         srct = srct.replace("$(FIRE_SRC_NAME)", getProperName(sourceFile));
                         srct = srct.replace("$(FIRE_LANG_GH_LINK)", (ghURLprefix + ghLangTags[i] + "-PatternHouse/blob/main/" + capGoal + " Patterns/" + getProperName(sourceFile)));
+                        srct = srct.replace("$(FIRE_LANG_DW_LINK)", (ghURLprefix + ghLangTags[i] + "-PatternHouse/raw/main/" + capGoal + " Patterns/" + getProperName(sourceFile)));
 
                         if(srct.trim().equals("$(FIRE_SRC)")) {
                             System.out.println(" FIRE [INFO] : Processing source code");
