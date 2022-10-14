@@ -129,6 +129,11 @@
             togglep_string();
             togglep_symbol();
             togglep_wave();
+
+           document.getElementById('dash').className = "dash";
+           document.getElementById('temp').className = "hide-temp";
+           document.getElementById('temp2').className = "inbox";
+           document.getElementById('temp2').style = "display: flex;";
         };
     </script>
 </head>
@@ -161,7 +166,7 @@
     </div>
 
     
-    <div class="dash">
+    <div class="dash hide-temp" id="dash">
         $(FIRE_CARDTS)
         <div class="card $(FIRE_PNT)">
             <div class="heading">
@@ -188,6 +193,16 @@
         </div>
         $(FIRE_CARDTE)
         $(FIRE_DASH_RPT)
+    </div>
+
+    <div class="eofdisp">
+        <div class="inbox" id="temp">
+            <div class="text">Loading ...</div>
+        </div>
+        <div class="inbox" id="temp2" style="display: none;">
+            <div class="text">You have reached the end of the search results.</div>
+            <div class="text">Try changing the filters for more results.</div>
+        </div>
     </div>
 
 </div>
