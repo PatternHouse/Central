@@ -3,6 +3,7 @@ package org.openaod.patternhouse;
 import org.openaod.patternhouse.util.FireExtensions;
 
 import java.util.Vector;
+import java.util.Collections;
 import java.time.LocalDate;
 
 public class NewPatternBrowser extends FireExtensions {
@@ -320,6 +321,7 @@ public class NewPatternBrowser extends FireExtensions {
         Vector<String> outputVector = new Vector<>(1,1);
         
         redirect = false;
+
         for(String line:get(P_TEMPLATE_INDEX)) {
             if(redirect) {
                 if(line.trim().startsWith("$(FIRE_CARDTE)")) redirect = false;
@@ -339,8 +341,11 @@ public class NewPatternBrowser extends FireExtensions {
                     // Get all possible pattern images for the goal
                     int GOAL_PATTERNS_INDEX = listFiles(inputImagesDir+goal);
                     
+                    Vector<String> files = get(GOAL_PATTERNS_INDEX);
+                    Collections.sort(files);
+
                     // Loop through all the possible pattern images for the goal
-                    for(String patternImage:get(GOAL_PATTERNS_INDEX)) {
+                    for(String patternImage:files) {
                         
 
                         // Skip and continue if pattern file is not an image
