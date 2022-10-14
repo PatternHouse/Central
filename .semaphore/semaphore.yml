@@ -17,11 +17,13 @@ blocks:
             - 'git clone https://github.com/openAOD/patternhouse-o-o.git'
             - cp -Rv ./Build/Portal/* ./patternhouse-o-o/
             - cd ./patternhouse-o-o
-            - git config --global user.name "$SM_GH_NAME"
-            - git config --global user.email "$SM_GH_EMAIL"
+            - echo $SMDP_NAME
+            - echo $SMDP_EMAIL
+            - git config --global user.name "$SMDP_NAME"
+            - git config --global user.email "$SMDP_EMAIL"
             - git add *
             - 'git commit -a -m "PatternHouse Bot: Semaphore Automated Deployment ..."'
-            - 'git push https://$SM_GH_NAME:$SM_GH_TOKEN@github.com/openAOD/patternhouse-o-o.git'
+            - 'git push https://$SMDP_NAME:$SMDP_TOKEN@github.com/openAOD/patternhouse-o-o.git'
       agent:
         machine:
           type: e1-standard-2
