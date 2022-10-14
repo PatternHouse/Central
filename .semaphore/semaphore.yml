@@ -20,11 +20,11 @@ blocks:
             - cp -R ./Build/Portal/* ./patternhouse-o-o/
             - cp ./LICENSE ./patternhouse-o-o/
             - cd ./patternhouse-o-o
-            - 'date +”%m/%d/%Y %H:%M” > release-info'
+            - date > release-info
             - git config --global user.name "$SMDP_NAME"
             - git config --global user.email "$SMDP_EMAIL"
             - git add *
-            - 'git commit -a -m "Semaphore Automated Deployment ID:$(date +”%m/%d/%Y %H:%M”)"'
+            - 'git commit -a -m "Semaphore Automated Deployment ID:$(date)"'
             - 'git push https://$SMDP_NAME:$SMDP_TOKEN@github.com/openAOD/patternhouse-o-o.git'
       agent:
         machine:
