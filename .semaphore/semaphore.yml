@@ -12,7 +12,9 @@ blocks:
           commands:
             - checkout
             - sudo apt install -y maven default-jdk
-            - bash ./Scripts/build.sh
+            - bash ./Scripts/stage1.sh
+            - bash ./Scripts/stage2.sh
+            - bash ./Scripts/stage3.sh
       agent:
         machine:
           type: e1-standard-2
