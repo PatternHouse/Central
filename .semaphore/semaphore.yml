@@ -18,7 +18,7 @@ blocks:
             - cp -Rv ./Build/Portal/* ./patternhouse-o-o/
             - cd ./patternhouse-o-o
             - git config --global user.name "$SM_GH_NAME"
-            - git config --gloabl user.email "$SM_GH_EMAIL"
+            - git config --global user.email "$SM_GH_EMAIL"
             - git add *
             - 'git commit -a -m "PatternHouse Bot: Semaphore Automated Deployment ..."'
             - 'git push https://$SM_GH_NAME:$SM_GH_TOKEN@github.com/openAOD/patternhouse-o-o.git'
