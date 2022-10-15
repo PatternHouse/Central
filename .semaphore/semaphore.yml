@@ -11,5 +11,24 @@ blocks:
         - name: Build
           commands:
             - checkout
-            - bash ./build.sh
-            - cat ./Build/fire.log
+            - sudo ln -sf bash /bin/sh
+            - sudo apt install -y maven default-jdk
+            - bash ./Scripts/build.sh
+            - 'git clone https://github.com/openAOD/patternhouse-o-o.git'
+            - cp ./patternhouse-o-o/LICENSE .
+            - rm -rf ./patternhouse/*
+            - cp -R ./Build/Portal/* ./patternhouse-o-o/
+            - cp ./LICENSE ./patternhouse-o-o/
+            - cd ./patternhouse-o-o
+            - date > release-info
+            - git config --global user.name "$SMDP_NAME"
+            - git config --global user.email "$SMDP_EMAIL"
+            - git add *
+            - 'git commit -a -m "Semaphore Automated Deployment ID:$(date)"'
+            - 'git push https://$SMDP_NAME:$SMDP_TOKEN@github.com/openAOD/patternhouse-o-o.git'
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu2004
+      secrets:
+        - name: Deployment Keys
