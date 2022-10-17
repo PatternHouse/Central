@@ -38,13 +38,13 @@ public class NewPatternBrowser extends FireExtensions {
     private static final String outputExtension = ".html";
 
     /* Display Language Tags */
-    private static final String[] dispLanguages = { "C" , "C++" , "C#" , "Python" , "Java" };
+    private static final String[] dispLanguages = { "C" , "C++" , "C#" , "Python" , "Java", "JavaScript" };
 
     /* GitHub Language Tags */
-    private static final String[] ghLangTags = { "C" , "CPlusPlus" , "CSharp" , "Python" , "Java" };
+    private static final String[] ghLangTags = { "C" , "CPlusPlus" , "CSharp" , "Python" , "Java" , "JavaScript"};
 
     /* Language Extensions for : Searching for Code Files and PrismJS Languages Tags */
-    private static final String[] languagesExtensions = { "c" , "cpp" , "cs" , "py" , "java" };
+    private static final String[] languagesExtensions = { "c" , "cpp" , "cs" , "py" , "java" , "js" };
 
     /* Target Goals */
     private static final String[] goals = { "alphabetic", "numeric", "pyramid", "series", "spiral", "string", "symbol", "wave" };

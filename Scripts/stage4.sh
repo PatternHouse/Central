@@ -10,12 +10,14 @@ git clone --depth 1 https://github.com/openAOD/Java-PatternHouse.git > /dev/null
 git clone --depth 1 https://github.com/openAOD/C-PatternHouse.git > /dev/null 2>&1
 git clone --depth 1 https://github.com/openAOD/CPlusPlus-PatternHouse.git > /dev/null 2>&1
 git clone --depth 1 https://github.com/openAOD/CSharp-PatternHouse.git > /dev/null 2>&1
+git clone --depth 1 https://github.com/openAOD/JavaScript-PatternHouse.git > /dev/null 2>&1
 echo "Stage [4] INFO : Formatting directory names ..."
 mv ./Python-PatternHouse ./py
 mv ./Java-PatternHouse ./java
 mv ./C-PatternHouse ./c
 mv ./CPlusPlus-PatternHouse ./cpp
 mv ./CSharp-PatternHouse ./cs
+mv ./JavaScript-PatternHouse ./js
 
 mv "./py/Alphabetic Patterns" ./py/alphabetic
 mv "./py/Numeric Patterns" ./py/numeric
@@ -61,5 +63,14 @@ mv "./cs/Spiral Patterns" ./cs/spiral
 mv "./cs/String Patterns" ./cs/string
 mv "./cs/Symbol Patterns" ./cs/symbol
 mv "./cs/Wave Patterns" ./cs/wave
+
+mv "./js/Alphabetic Patterns" ./js/alphabetic
+mv "./js/Numeric Patterns" ./js/numeric
+mv "./js/Pyramid Patterns" ./js/pyramid
+mv "./js/Series Patterns" ./js/series
+mv "./js/Spiral Patterns" ./js/spiral
+mv "./js/String Patterns" ./js/string
+mv "./js/Symbol Patterns" ./js/symbol
+mv "./js/Wave Patterns" ./js/wave
 
 popd > /dev/null 2>&1
