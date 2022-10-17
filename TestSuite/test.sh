@@ -49,4 +49,22 @@ if [ "$1" = "c" ]; then
     done
 
     exit $EXIT_CODE
+
+elif [ "$1" = cpp ]; then
+
+    echo "Starting Tests ... "
+
+    for d in */ ; do
+        cd "$d"
+        for f in $(ls | grep .c) ; do
+            compile_cpp_source $f
+        done
+        cd ..
+    done
+
+    exit $EXIT_CODE
+
+else
+    echo "Error: Incorrect parameters"
+    exit 1
 fi
