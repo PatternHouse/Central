@@ -56,7 +56,7 @@ elif [ "$1" = cpp ]; then
 
     for d in */ ; do
         cd "$d"
-        for f in $(ls | grep .c) ; do
+        for f in $(ls | grep .cpp) ; do
             compile_cpp_source $f
         done
         cd ..
