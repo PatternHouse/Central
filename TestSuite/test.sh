@@ -14,7 +14,7 @@ compile_c_source()
     NAME="${FILE%%.*}"
     OUT="$NAME.out"
 
-    if gcc $FILE -o $OUT >/dev/null 2>&1; then
+    if gcc $FILE -o $OUT -lm >/dev/null 2>&1; then
         echo -e "   $GREEN[PASS]$NC $NAME"
     else
         echo -e "   $RED[FAIL]$NC $NAME"
