@@ -22,15 +22,21 @@ compile_c_source()
     fi
 }
 
+compile_cpp_source()
+{
+    FILE=$1
+    NAME="${FILE%%.*}"
+    OUT="$NAME.out"
+
+    if g++ $FILE -o $OUT -lm >/dev/null 2>&1; then
+        echo -e "   $GREEN[PASS]$NC $NAME"
+    else
+        echo -e "   $RED[FAIL]$NC $NAME"
+        EXIT_CODE='1'
+    fi
+}
+
 if [ "$1" = "c" ]; then
-
-    mkdir TestEnvironment
-    cd TestEnvironment
-
-    git clone https://github.com/openAOD/C-PatternHouse.git --depth 1 >/dev/null 2>&1
-
-    cd ..
-    pushd ./TestEnvironment/C-PatternHouse >/dev/null 2>&1
  
     echo "Starting Tests ... "
 
@@ -41,9 +47,6 @@ if [ "$1" = "c" ]; then
         done
         cd ..
     done
-
-    popd >/dev/null 2>&1
-    rm -rf TestEnvironment
 
     exit $EXIT_CODE
 fi
