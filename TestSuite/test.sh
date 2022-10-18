@@ -21,6 +21,46 @@ compile_java_source()
     fi
 }
 
+compile_py_source()
+{
+    FILE=$1
+    NAME="${FILE%%.*}"
+
+    if python3 -m py_compile $FILE >/dev/null 2>&1; then
+        echo -e "   $GREEN[PASS]$NC $NAME"
+    else
+        echo -e "   $RED[FAIL]$NC $NAME"
+        EXIT_CODE='1'
+    fi
+}
+
+compile_cs_source()
+{
+    FILE=$1
+    NAME="${FILE%%.*}"
+    OUT="$NAME.exe"
+
+    if mcs -out:$OUT $FILE >/dev/null 2>&1; then
+        echo -e "   $GREEN[PASS]$NC $NAME"
+    else
+        echo -e "   $RED[FAIL]$NC $NAME"
+        EXIT_CODE='1'
+    fi
+}
+
+compile_js_source()
+{
+    FILE=$1
+    NAME="${FILE%%.*}"
+
+    if node --check $FILE >/dev/null 2>&1; then
+        echo -e "   $GREEN[PASS]$NC $NAME"
+    else
+        echo -e "   $RED[FAIL]$NC $NAME"
+        EXIT_CODE='1'
+    fi
+}
+
 compile_c_source()
 {
     FILE=$1
@@ -85,6 +125,48 @@ elif [ "$1" = "java" ]; then
         cd "$d"
         for f in $(ls | grep .java) ; do
             compile_java_source $f
+        done
+        cd ..
+    done
+
+    exit $EXIT_CODE
+
+elif [ "$1" = "python" ]; then
+
+    echo "Starting Tests ... "
+
+    for d in */ ; do
+        cd "$d"
+        for f in $(ls | grep .py) ; do
+            compile_py_source $f
+        done
+        cd ..
+    done
+
+    exit $EXIT_CODE
+
+elif [ "$1" = "cs" ]; then
+
+    echo "Starting Tests ... "
+
+    for d in */ ; do
+        cd "$d"
+        for f in $(ls | grep .cs) ; do
+            compile_cs_source $f
+        done
+        cd ..
+    done
+
+    exit $EXIT_CODE
+
+elif [ "$1" = "js" ]; then
+
+    echo "Starting Tests ... "
+
+    for d in */ ; do
+        cd "$d"
+        for f in $(ls | grep .js) ; do
+            compile_js_source $f
         done
         cd ..
     done
