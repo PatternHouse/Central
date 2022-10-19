@@ -89,6 +89,11 @@ compile_cpp_source()
     fi
 }
 
+cexit() {
+    echo "EXIT ($EXIT_CODE)"
+    exit $EXIT_CODE
+}
+
 if [ "$1" = "c" ]; then
  
     echo "Starting Tests ... "
@@ -101,7 +106,7 @@ if [ "$1" = "c" ]; then
         cd ..
     done
 
-    exit $EXIT_CODE
+    cexit()
 
 elif [ "$1" = "cpp" ]; then
 
@@ -115,7 +120,7 @@ elif [ "$1" = "cpp" ]; then
         cd ..
     done
 
-    exit $EXIT_CODE
+    cexit()
 
 elif [ "$1" = "java" ]; then
 
@@ -129,7 +134,7 @@ elif [ "$1" = "java" ]; then
         cd ..
     done
 
-    exit $EXIT_CODE
+    cexit()
 
 elif [ "$1" = "python" ]; then
 
@@ -143,7 +148,7 @@ elif [ "$1" = "python" ]; then
         cd ..
     done
 
-    exit $EXIT_CODE
+    cexit()
 
 elif [ "$1" = "cs" ]; then
 
@@ -157,7 +162,7 @@ elif [ "$1" = "cs" ]; then
         cd ..
     done
 
-    exit $EXIT_CODE
+    cexit()
 
 elif [ "$1" = "js" ]; then
 
@@ -171,7 +176,7 @@ elif [ "$1" = "js" ]; then
         cd ..
     done
 
-    exit $EXIT_CODE
+    cexit()
 
 else
     echo "Error: Incorrect parameters"
