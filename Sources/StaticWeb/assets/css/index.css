@@ -1,0 +1,219 @@
+.main {
+    padding-top: 20vh;
+}
+
+.main .head, .main .details {
+    max-width: 28rem;
+    color: white;
+}
+
+.main .head {
+    font-size: 2.5rem;
+    padding: 1.5rem 0rem;
+}
+
+.main .details {
+    font-size: 1.25rem;
+}
+
+.hcard .title {
+    margin: 1rem 0.25rem;
+    padding: 0.25rem 1rem;
+    font-weight: lighter;
+    font-size: 3rem;
+    border-bottom: 2px solid #730237;
+    color: #730237;
+}
+
+.hcard .container {
+    margin-bottom: 1.75rem;
+    padding: 1rem 1.25rem;
+    background-color: #730237;
+    border-radius: 14px;
+    color: white;
+    transition-duration: 1.4s;
+}
+
+.hcard .container:hover {
+    background-color: #BF045B;
+}
+
+.hcard .container .holder {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.hcard .container .holder .label {
+    background-color: #FF1F87;
+    padding: 0.25rem 0.75rem;
+    border-radius: 14px;
+}
+
+.hcard .container .head {
+    font-size: 2rem;
+}
+
+.hcard .container .details {
+    font-size: 1rem;
+    max-width: 85%;
+    padding: 0.25rem 0rem;
+}
+
+.hcard .container .details-small {
+    font-size: 1rem;
+    max-width: 85%;
+    padding: 0.25rem 0rem;
+}
+
+.hcard .container .date {
+    font-size: 1.5rem;
+    padding: 0.5rem 0rem;
+}
+
+.hcard .container .link {
+    font-weight: bolder;
+    border-bottom: 1px solid transparent;
+    max-width: fit-content;
+}
+
+.hcard .container .link:hover {
+    border-bottom: 1px solid white;
+}
+
+.license {
+    background-color: #590043;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0.5rem;
+}
+
+.license .h1 {
+    font-size: 2.25rem;
+    font-weight: lighter;
+    padding: 0.25rem 0rem;
+    text-align: center;
+}
+
+.license .tg1 {
+    font-size: 1.5rem;
+    padding: 0.25rem 0rem;
+}
+
+.license .tg2 {
+    display: flex;
+    padding: 0.25rem 0rem;
+    gap: 3rem;
+}
+
+.license a {
+    border-bottom: 1px solid transparent;
+}
+
+.license a:hover {
+    border-bottom: 1px solid white;
+}
+
+.credits {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    padding: 2rem;
+}
+
+.credits div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.credits .addn .container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.credits .sponsor img {
+    min-height: 3.5rem;
+    max-height: 4.5vw;
+}
+
+.credits .sponsor .text {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.credits .addn .text {
+    font-size: 2rem;
+}
+
+.credits .addn img {
+    min-height: 5.5rem;
+    max-height: 7vw;
+}
+
+.contact {
+    background-color: #eee;
+    color: black;
+    padding: 2rem 0rem;
+    font-size: 1.25rem;
+}
+
+.contact .head {
+    font-size: 2.25rem;
+    margin: 1rem 0rem;
+    max-width: fit-content;
+    border-bottom: 1px solid black;
+}
+
+.contact .links {
+    display: flex;
+    font-size: 1rem;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.contact .details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    font-size: 1rem;
+}
+
+.contact .details .title {
+    font-size: 1.25rem;
+    padding-bottom: 0.5rem;
+}
+
+.contact .details div {
+    padding: 0.25rem;
+}
+
+.contact a {
+    border-bottom: 1px solid transparent;
+}
+
+.contact a:hover {
+    border-bottom: 1px solid black;
+}
+
+@media only screen and (min-width: 24rem) {
+    .hcard .container .head {
+        font-size: 3rem;
+    }
+
+    .hcard .container .details {
+        font-size: 1.25rem;
+    }
+
+    .hcard .container {
+        padding: 2rem 2.25rem;
+    }
+  }

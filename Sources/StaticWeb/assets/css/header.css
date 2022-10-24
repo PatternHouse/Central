@@ -1,0 +1,63 @@
+header {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-wrap: wrap;
+}
+
+header .right, header .left {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+
+    color: white;
+}
+
+header .left .logo-text {
+    font-size: 1.75rem;
+    font-weight: bolder;
+}
+
+header .right {
+    font-size: 1.25rem;
+}
+
+header .right .nav {
+    display: flex;
+    gap: 1rem;
+
+    flex-wrap: wrap;
+}
+
+header .right .nav div {
+    border-bottom: 1px solid transparent;
+    transition-duration: 0.7s;
+}
+
+header .right .nav div:hover {
+    border-bottom: 1px solid white;
+}
+
+@media only screen and (min-width: 30rem) {
+
+    header .right .nav {
+        gap: 3rem;
+    }
+    
+}
+
+@media only screen and (min-width: 94rem) {
+    header {
+        max-width: 90rem;
+        margin: 0 auto;
+    }
+
+    header .right .nav {
+        gap: 5rem;
+    }
+}
