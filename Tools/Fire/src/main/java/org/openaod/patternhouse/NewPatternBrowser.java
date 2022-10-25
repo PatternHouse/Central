@@ -388,7 +388,7 @@ public class NewPatternBrowser extends FireExtensions {
                         String patternGenPN = genPatternName;
                         String labelrpt = "";
                         String imgURL = pImagePrexfix + goal + "/" + getProperName(patternImage);
-                        String codeLink = goal+"/"+genPatternName+outputExtension;
+                        String codeLink = "./"+goal+"/"+genPatternName+outputExtension;
                         
                         for(String template:cardTemplate) {
                             String out = template.trim();
