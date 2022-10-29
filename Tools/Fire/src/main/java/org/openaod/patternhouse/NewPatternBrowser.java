@@ -14,7 +14,7 @@ public class NewPatternBrowser extends FireExtensions {
     private static final String fireDateString = "" + LocalDate.now();
 
     /* Pattern images URL prefix */
-    private static final String imgURLprefix = "../../patterns/";
+    private static final String imgURLprefix = "https://cdn.openaod.org/assets/img/patterns/";
 
     /* Pattern GH Links URL prefix */
     private static final String ghURLprefix = "https://github.com/openAOD/";
@@ -80,10 +80,10 @@ public class NewPatternBrowser extends FireExtensions {
                 System.out.println(" FIRE [INFO] : Looking for \""+patternImage+"\" under goal \""+goal+"\"");
 
                 // Skip and continue if pattern file is not an image
-                if( !(patternImage.endsWith(".PNG") || patternImage.endsWith(".png") || patternImage.endsWith(".JPG") || patternImage.endsWith(".jpg") ) ) continue;
+                if( !(patternImage.endsWith(".PNG") || patternImage.endsWith(".png") || patternImage.endsWith(".JPG") || patternImage.endsWith(".jpg") || patternImage.endsWith(".webp") ) ) continue;
 
                 // Replace extensions in the name
-                String replacedPatternImage = patternImage.replace(".PNG", "").replace(".png", "").replace(".JPG", "").replace(".jpg","");
+                String replacedPatternImage = patternImage.replace(".PNG", "").replace(".png", "").replace(".JPG", "").replace(".jpg","").replace(".webp","");
 
                 // Create a Generated Pattern Name for the patternImage
                 // This will be in the format of (Capitalized Goal Name) + " Pattern " + (Numeric Part of patternImage)
@@ -285,7 +285,7 @@ public class NewPatternBrowser extends FireExtensions {
     private static final String dashboardWebpagePage = "./Portal/portal/index.html";
 
     /* Primary Portal Webpage Image Prefix */
-    private static final String pImagePrexfix = "../patterns/";
+    private static final String pImagePrexfix = imgURLprefix;
 
     private static void buildPortalDasboard() {
         System.out.println(" FIRE [INFO] : Building Portal frontend ... ");
@@ -348,12 +348,11 @@ public class NewPatternBrowser extends FireExtensions {
                     // Loop through all the possible pattern images for the goal
                     for(String patternImage:files) {
                         
-
                         // Skip and continue if pattern file is not an image
-                        if( !(patternImage.endsWith(".PNG") || patternImage.endsWith(".png") || patternImage.endsWith(".JPG") || patternImage.endsWith(".jpg") ) ) continue;
+                        if( !(patternImage.endsWith(".PNG") || patternImage.endsWith(".png") || patternImage.endsWith(".JPG") || patternImage.endsWith(".jpg") || patternImage.endsWith(".webp") ) ) continue;
 
                         // Replace extensions in the name
-                        String replacedPatternImage = patternImage.replace(".PNG", "").replace(".png", "").replace(".JPG", "").replace(".jpg","");
+                        String replacedPatternImage = patternImage.replace(".PNG", "").replace(".png", "").replace(".JPG", "").replace(".jpg","").replace(".webp","");
 
                         // Create a Generated Pattern Name for the patternImage
                         // This will be in the format of (Capitalized Goal Name) + " Pattern " + (Numeric Part of patternImage)
