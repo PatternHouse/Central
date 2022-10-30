@@ -104,6 +104,9 @@
     margin-top: 1rem;
     border: 1px solid #4DB6AC;
     padding: 1rem;
+
+    /* Disabling public view of Debug Window */
+    display: none;
 }
 
 .main-container section.left .bottom .head {
