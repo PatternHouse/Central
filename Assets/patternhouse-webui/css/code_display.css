@@ -55,6 +55,8 @@
     margin-top: 0;
     margin-bottom: 0;
     padding: 0.75rem 1rem;
+
+    overflow-x: scroll;
 }
 
 .main-container section.right .code-container .footer {
@@ -111,5 +113,9 @@
     .main-container section.right .code-container .footer {
         flex-direction: row;
         align-items: center;
+    }
+
+    .main-container section.right .code-container  {
+        max-width: 85rem;
     }
 }
