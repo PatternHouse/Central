@@ -9,4 +9,5 @@ rm -rf ./Assets
 rm -rf ./Sources
 rm -rf ./Templates
 rm -rf ./Bin
+rm -rf ./cdn-o-o
 popd > /dev/null 2>&1
