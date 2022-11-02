@@ -23,6 +23,7 @@ blocks:
             - date > release-info
             - git config --global user.name "$SMDP_NAME"
             - git config --global user.email "$SMDP_EMAIL"
+            - git switch dev
             - git add *
             - 'git commit -a -m "Semaphore Automated Deployment ID:$(date)"'
             - 'git push https://$SMDP_NAME:$SMDP_TOKEN@github.com/openAOD/patternhouse-o-o.git'
