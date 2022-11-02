@@ -31,7 +31,7 @@ blocks:
             - 'git commit -a -m "Semaphore Automated Deployment ID:$(date)"'
             - 'git push https://$SMDP_NAME:$SMDP_TOKEN@github.com/openAOD/patternhouse-o-o.git'
             - touch mail-notification
-            - 'echo "Subject: [PatternHouseUI] Deployment Successful" >> mail-notification'
+            - 'echo "Subject: [PatternHouseUI] Preview Deployment Successful" >> mail-notification'
             - 'echo "Release Info File:" >> mail-notification'
             - cat release-info >> mail-notification
             - sudo apt install -y sendmail
