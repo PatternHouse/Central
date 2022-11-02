@@ -1,6 +1,8 @@
 package org.openaod.patternhouse.util;
 
 import java.io.File;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Vector;
 
 public class FireExtensions {
@@ -45,6 +47,20 @@ public class FireExtensions {
         File[] listing = f.listFiles();
         Vector<String> vec = new Vector<>(1,1);
         for(File file:listing) vec.addElement(file.getPath());
+
+        Collections.sort(vec, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                int i1 = Integer.parseInt(o1.replaceAll("[^0-9]", ""));
+                int i2 = Integer.parseInt(o2.replaceAll("[^0-9]", ""));
+                if(i1 > i2) return 1;
+                else if(i2 > i1) return -1;
+                else return 0;
+            }
+        });
+
+        System.out.println(vec);
+
         return VCache.storeCache(vec);
     }
 
