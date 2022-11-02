@@ -343,7 +343,6 @@ public class NewPatternBrowser extends FireExtensions {
                     int GOAL_PATTERNS_INDEX = listFiles(inputImagesDir+goal);
                     
                     Vector<String> files = get(GOAL_PATTERNS_INDEX);
-                    Collections.sort(files);
 
                     // Loop through all the possible pattern images for the goal
                     for(String patternImage:files) {

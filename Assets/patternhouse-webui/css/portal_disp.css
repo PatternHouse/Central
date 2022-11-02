@@ -61,9 +61,17 @@
 .dash .card {
     min-width: 180px;
     max-width: 275px;
-    border: 1px solid #00695C;
+    border: 1px solid #4DB6AC;
     margin-top: 0.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
+    margin-right: 1rem;
+
+    border-radius: 14px;
+    transition-duration: 0.7s;
+}
+
+.dash .card:hover {
+    border: 1px solid #00695C;
 }
 
 .dash .card .heading {
@@ -71,12 +79,14 @@
 }
 
 .dash .card .heading .title {
-    padding: 0.5rem;
+    text-align: center;
     font-size: 1.25rem;
     font-weight: bolder;
-    padding: 0.25rem 0.75rem;
+    padding: 0.75rem 0.75rem;
     background-color: #00695C;
     color: white;
+    border-top-right-radius: 14px;
+    border-top-left-radius: 14px;
 }
 
 .dash .card .labels {
@@ -110,12 +120,14 @@
     color: white;
     display: flex;
     justify-content: center;
-    padding: 0.5rem 0rem;
+    padding: 0.75rem 0rem;
     margin-top: 0.5rem;
     transition-duration: 0.7s;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
 }
 
-.dash .card .link:hover {
+.dash .card:hover .link {
     background-color: #00897B;
 }
 
@@ -150,5 +162,15 @@
     .portal-container {
         margin-left: 16vw;
         margin-right: 16vw;
+    }
+}
+
+@media only screen and (max-width: 32rem) {
+    .dash .card {
+        margin: 0 auto;
+    }
+
+    .dash {
+        gap: 2rem;
     }
 }
