@@ -13,6 +13,7 @@ blocks:
             - checkout
             - sudo ln -sf bash /bin/sh
             - sudo apt install -y maven default-jdk
+            - patch -u ./Assets/patternhouse-webui/css/nav_display.css -i ./Patches/preview_build.patch
             - bash ./Scripts/build.sh
             - 'git clone https://github.com/openAOD/patternhouse-o-o.git'
             - cp ./patternhouse-o-o/LICENSE .
