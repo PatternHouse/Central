@@ -13,7 +13,7 @@ blocks:
             - checkout
             - sudo ln -sf bash /bin/sh
             - sudo apt install -y maven default-jdk
-            - bash ./Scripts/build.sh
+            - bash ./Scripts/build.sh webui
             - 'git clone https://github.com/openAOD/patternhouse-o-o.git'
             - cd patternhouse-o-o/
             - cd ..
