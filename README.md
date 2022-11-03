@@ -12,9 +12,12 @@ Builds and auto deploys the PatternHouse websites to ``openAOD/patternhouse-o-o`
 ### ``./Patches/`` - Optional Patches(mostly for development marks)
 ### ``./Scripts/`` - Build and Debug scripts for PatternHouse Main/WebUI
 All builds are done is a separate build environment (``./Build/``). The static website assets are synced automatically to respective locations. The major scripts are:
-  * ``./Scripts/build.sh`` - Clean build of patternhouse-main and patternhouse-webui (will clean out debugging log files and unnecessary binaries)
-  * ``./Scripts/debug.sh`` - Clean build of patternhouse-main and patternhouse-webui (will persist debugging log files and binaries)
-### ``./Sources/`` - Static Webpages
+  * ``./Scripts/build.sh`` - Main build script for Central repo
+  #### Usage:
+  ```bash
+  bash ./Scripts/build.sh {target}
+  ```
+  where ``{target}`` can be ``webui``, ``main`` , ``webui-dev``, ``main-dev`` , ``all`` or ``all-dev``.
 
 ### ``./Templates/`` - Template website frontends for FIRE
   * ``./Templates/PortalDisplay`` - Main template that will hold single page display of all the patterns for patternhouse-webui
