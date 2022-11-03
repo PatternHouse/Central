@@ -9,13 +9,7 @@ Builds and auto deploys the PatternHouse websites to ``openAOD/patternhouse-o-o`
   * ``./Assets/patternhouse-main/`` - CSS and JS scripts relating to patternhouse-main (the main website frontend of PatternHouse)
   * ``./Assets/patternhouse-webui/`` - CSS and JS scripts relating to patternhouse-webui (PatternHouse Portal)
   * ``./Assets/patterns/`` - Images of all the patterns in PatternHouse
-### ``./Patches/`` - Optional Patches
-  * ``./Patches/preview_build.patch`` - Enable debug window for code preview
-  #### Usage:
-  ```bash
-  patch -u ./Assets/patternhouse-webui/nav_display.css -i ./Patches/preview_build.patch
-  ```
-
+### ``./Patches/`` - Optional Patches(mostly for development marks)
 ### ``./Scripts/`` - Build and Debug scripts for PatternHouse Main/WebUI
 All builds are done is a separate build environment (``./Build/``). The static website assets are synced automatically to respective locations. The major scripts are:
   * ``./Scripts/build.sh`` - Clean build of patternhouse-main and patternhouse-webui (will clean out debugging log files and unnecessary binaries)

@@ -18,8 +18,8 @@ blocks:
             - cd patternhouse-o-o/
             - cd ..
             - cp ./patternhouse-o-o/LICENSE .
-            - rm -rf ./patternhouse/*
-            - cp -R ./Build/Portal/* ./patternhouse-o-o/
+            - rm -rf ./patternhouse-o-o/*
+            - cp -R ./Build/patternhouse/* ./patternhouse-o-o/
             - cp ./LICENSE ./patternhouse-o-o/
             - cd ./patternhouse-o-o
             - date > release-info

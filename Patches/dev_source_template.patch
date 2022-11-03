@@ -1,0 +1,21 @@
+--- ./Templates/SourceDisplay/Template.html	2022-11-03 10:04:40.417167968 +0530
++++ ./Templates/SourceDisplay/T2.html	2022-11-03 10:05:26.365100790 +0530
+@@ -79,7 +79,8 @@
+             <div class="text">
+                 Build ID: $(FIRE_BUILD_ID) <br>
+                 Build Date: $(FIRE_BUILD_DATE) <br>
+-                Fire Version: $(FIRE_VERSION)
++                Fire Version: $(FIRE_VERSION) <br>
++                This is a development build.
+             </div>
+         </div>
+     </section>
+@@ -147,7 +148,7 @@
+ <footer>
+     <div class="container">
+         <div class="left">
+-            <div class="heading">PatternHouse Database</div>
++            <div class="heading">PatternHouse Database (Development Build)</div>
+             <div class="description">Copyright &copy 2022, openAOD</div>
+         </div>
+         <div class="right">

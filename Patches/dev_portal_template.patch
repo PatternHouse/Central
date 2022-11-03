@@ -1,0 +1,20 @@
+--- ./Templates/PortalDisplay/Template.html	2022-11-02 13:09:54.440901409 +0530
++++ ./Templates/PortalDisplay/T2.html	2022-11-03 10:02:03.929144132 +0530
+@@ -37,7 +37,7 @@
+ <div class="portal-container">
+     
+     <div class="head">
+-        <div class="heading">PatternHouse Portal WebUI</div>
++        <div class="heading">PatternHouse Portal WebUI (Development Build)</div>
+         <div class="label-holder">
+             <div class="text">Select Pattern Type(s): </div>
+             $(FIRE_PN_RPTT)  <button id="tbutton-$(FIRE_PNNAME)" class="label-active" onclick="togglep_$(FIRE_PNNAME)()">$(FIRE_PNNAME)</button>
+@@ -89,7 +89,7 @@
+ <footer>
+     <div class="container">
+         <div class="left">
+-            <div class="heading">PatternHouse Database</div>
++            <div class="heading">PatternHouse Database (Development Build)</div>
+             <div class="description">Copyright &copy 2022, openAOD</div>
+         </div>
+         <div class="right">

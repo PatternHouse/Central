@@ -1,0 +1,10 @@
+--- ./Sources/StaticPortal/index.html	2022-11-02 13:07:45.475767890 +0530
++++ ./Sources/StaticPortal/i2.html	2022-11-03 10:08:08.856991231 +0530
+@@ -70,6 +70,7 @@
+                     <img src="img/logo_small.png" style="display: block; margin: auto;width: auto;">
+                     <h1 class="section-title white bold mb-3 display-1">PatternHouse</h1>
+                     <p class="text-normal white display-7">The largest database of code patterns</p>
++                    <p class="text-normal white display-7" style="font-size: 10px;">(You are viewing a development build)</p>
+                     <div style="padding-bottom: 30px;" class="section-btn align-center"><a class="btn btn-primary display-4"
+                             href="./portal/">Browse patterns <span
+                             class="icon-arrow-right iconfont"></span></a></div>
