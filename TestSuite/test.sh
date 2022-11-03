@@ -106,7 +106,7 @@ if [ "$1" = "c" ]; then
         cd ..
     done
 
-    cexit()
+    cexit
 
 elif [ "$1" = "cpp" ]; then
 
@@ -120,7 +120,7 @@ elif [ "$1" = "cpp" ]; then
         cd ..
     done
 
-    cexit()
+    cexit
 
 elif [ "$1" = "java" ]; then
 
@@ -134,7 +134,7 @@ elif [ "$1" = "java" ]; then
         cd ..
     done
 
-    cexit()
+    cexit
 
 elif [ "$1" = "python" ]; then
 
@@ -148,7 +148,7 @@ elif [ "$1" = "python" ]; then
         cd ..
     done
 
-    cexit()
+    cexit
 
 elif [ "$1" = "cs" ]; then
 
@@ -162,7 +162,7 @@ elif [ "$1" = "cs" ]; then
         cd ..
     done
 
-    cexit()
+    cexit
 
 elif [ "$1" = "js" ]; then
 
@@ -176,7 +176,7 @@ elif [ "$1" = "js" ]; then
         cd ..
     done
 
-    cexit()
+    cexit
 
 else
     echo "Error: Incorrect parameters"
