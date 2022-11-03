@@ -59,8 +59,6 @@ public class FireExtensions {
             }
         });
 
-        System.out.println(vec);
-
         return VCache.storeCache(vec);
     }
 
