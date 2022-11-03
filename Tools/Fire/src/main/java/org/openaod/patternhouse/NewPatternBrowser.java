@@ -9,8 +9,8 @@ import java.time.LocalDate;
 public class NewPatternBrowser extends FireExtensions {
 
     /* Fire Debugging Variables */
-    private static final String fireBuildID = "openAOD FIRE v1.2 Final Release Candidate";
-    private static final String fireVersionString = "openaod-fire-v1.2frc";
+    private static final String fireBuildID = "openAOD FIRE v1.3 Development Build";
+    private static final String fireVersionString = "openaod-fire-v1.3-dev";
     private static final String fireDateString = "" + LocalDate.now();
 
     /* Pattern images URL prefix */
@@ -20,13 +20,13 @@ public class NewPatternBrowser extends FireExtensions {
     private static final String ghURLprefix = "https://github.com/openAOD/";
 
     /* Directory for pattern images */
-    private static final String inputImagesDir = "./Assets/patterns/";
+    private static final String inputImagesDir = "./assets/patterns/";
 
     /* Directory for code files */
-    private static final String sourcesDir = "./Sources/Code/";
+    private static final String sourcesDir = "./code/";
 
     /* Output directory */
-    private static final String outputDir = "./Portal/portal/";
+    private static final String outputDir = "./patternhouse/portal/";
 
     /* Directory for templates */
     private static final String templatesDir = "./Templates/";
@@ -282,7 +282,7 @@ public class NewPatternBrowser extends FireExtensions {
     private static final String pPortalTemplatePath = "PortalDisplay/Template.html";
 
     /* Primary Portal Webpage Target */
-    private static final String dashboardWebpagePage = "./Portal/portal/index.html";
+    private static final String dashboardWebpagePage = outputDir+"index.html";
 
     /* Primary Portal Webpage Image Prefix */
     private static final String pImagePrexfix = imgURLprefix;

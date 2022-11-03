@@ -1,0 +1,10 @@
+--- ./Sources/StaticWeb/index.html	2022-11-02 13:07:45.483767963 +0530
++++ ./Sources/StaticWeb/i2.html	2022-11-03 10:11:10.669002357 +0530
+@@ -123,6 +123,7 @@
+ </section>
+ 
+ <section class="license" id="licensing">
++    <div class="titillium-web tg1">(You are viewing a development build)</div>
+     <div class="titillium-web h1">All Projects, Assets, and Code</div>
+     <div class="titillium-web tg1">Licensed under MIT</div>
+     <div class="titillium-web tg2"><a href="https://github.com/openAOD">View Source</a><a href="https://opensource.org/licenses/MIT">View License</a></div>
