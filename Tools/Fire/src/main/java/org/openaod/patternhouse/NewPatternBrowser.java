@@ -9,8 +9,8 @@ import java.time.LocalDate;
 public class NewPatternBrowser extends FireExtensions {
 
     /* Fire Debugging Variables */
-    private static final String fireBuildID = "openAOD FIRE v1.3";
-    private static final String fireVersionString = "openaod-fire-v1.3";
+    private static final String fireBuildID = "openAOD FIRE v1.0.0";
+    private static final String fireVersionString = "openaod-fire-v1.0.0-stable";
     private static final String fireDateString = "" + LocalDate.now();
 
     /* Pattern images URL prefix */
